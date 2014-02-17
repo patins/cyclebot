@@ -14,7 +14,9 @@ ANNOUNCEMENTS = [
 ]
 
 IGNORED_REASONS = [
-    'weekend'
+    'weekend',
+    'vacation',
+    'holiday'
 ]
 
 APP_KEY = ''
