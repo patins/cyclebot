@@ -6,7 +6,7 @@ SCHEDULE_FILE = 'schedule.sqlite'
 CYCLES = 6
 SCHOOL_TZ = timezone('US/Eastern')
 
-DATE_FORMAT = '%m/%d/%y'
+DATE_FORMAT = '%A %m/%d/%y'
 
 ANNOUNCEMENTS = [
     ScheduledAnnouncement(4, 30, 'Today ({date}) is cycle {cycle}', 'Today\'s ({date}) cycle is unavailable due to \'{reason}\''),
