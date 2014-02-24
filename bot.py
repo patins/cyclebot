@@ -1,8 +1,18 @@
 import config, cyclebot
 from time import sleep
 from datetime import datetime, timedelta
+from json import dumps
 
 schedule = cyclebot.load_schedule(config)
+
+def write_out_cycle(cycle, time):
+    f = open(config.CYCLE_FILE, 'w')
+    cycle_dictionary = {
+        'cycle': cycle,
+        'date': time.strftime('%m-%d-%Y')
+    }
+    f.write(dumps(cycle_dictionary))
+    f.close()
 
 try:
     while True:
@@ -19,6 +29,8 @@ try:
                     content = announcement.message.format(date=formatted_date, cycle=cycle[0])
                 if content != None:
                     cyclebot.tweet(content, config)
+        if config.CYCLE_FILE:
+            write_out_cycle(schedule.get_cycle(time.date())[0],  time.date())
         sleep(60)
 except (KeyboardInterrupt, SystemExit):
     pass

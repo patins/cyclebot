@@ -19,6 +19,8 @@ IGNORED_REASONS = [
     'holiday'
 ]
 
+CYCLE_FILE = 'cycle.json'
+
 APP_KEY = ''
 APP_SECRET = ''
 OAUTH_TOKEN = ''
