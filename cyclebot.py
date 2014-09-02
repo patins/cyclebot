@@ -38,7 +38,7 @@ class CycleSchedule:
         if exception_reason:
             return (-1, exception_reason)
         definition = self.session.query(CycleDefinition).\
-                    filter(date > CycleDefinition.date).\
+                    filter(date >= CycleDefinition.date).\
                     order_by(CycleDefinition.date.desc()).first()
         if not definition:
             return (-1, 'cycle data not available for extrapolation')
